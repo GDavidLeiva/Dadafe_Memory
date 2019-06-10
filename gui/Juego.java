@@ -5,17 +5,77 @@
  */
 package gui;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import logica.LogicaDelJuego;
+
 /**
  *
  * @author david
  */
 public class Juego extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Juego
      */
+    private LogicaDelJuego log = new LogicaDelJuego();
+    private ImageIcon imagen1,imagen2;
+    private boolean voltear,primeraC= false;
+    private JButton[] pboton = new JButton[2];
+    
     public Juego() {
         initComponents();
+        setImagenALasCartas();
+    }
+    
+    private void setImagenALasCartas(){
+        //le añade la imagen a cada carta
+        int[] numeros = log.getNumerosALasImagenes();
+        
+        carta1.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[0]+".png")));
+        carta2.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[1]+".png")));
+        carta3.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[2]+".png")));
+        carta4.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[3]+".png")));
+        carta5.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[4]+".png")));
+        carta6.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[5]+".png")));
+        carta7.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[6]+".png")));
+        carta8.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[7]+".png")));
+        carta9.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[8]+".png")));
+        carta10.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[9]+".png")));
+        carta11.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[10]+".png")));
+        carta12.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[11]+".png")));
+        carta13.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[12]+".png")));
+        carta14.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[13]+".png")));
+        carta15.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[14]+".png")));
+        carta16.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[15]+".png")));
+        carta17.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[16]+".png")));
+        carta18.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[17]+".png")));
+        carta19.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[18]+".png")));
+        carta20.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[19]+".png")));
+        
+    }
+    private void botonHabilitar(JButton btn){
+        if (!voltear){
+            btn.setEnabled(false);
+            imagen1=(ImageIcon) btn.getDisabledIcon();
+            pboton[0]=btn;
+            voltear=true;
+            primeraC=false;
+        } else
+            btn.setEnabled(false);
+            imagen2 = (ImageIcon) btn.getDisabledIcon();
+            pboton[1]=btn;
+            primeraC=true;
+            ganaste();
+    }
+    private void ganaste(){
+        if (!carta1.isEnabled() && !carta2.isEnabled() && !carta3.isEnabled() && !carta4.isEnabled() && !carta5.isEnabled() && !carta6.isEnabled() &&
+                !carta7.isEnabled() && !carta8.isEnabled() && !carta9.isEnabled() && !carta10.isEnabled() && !carta11.isEnabled() &&!carta12.isEnabled() &&
+                !carta13.isEnabled() &&!carta14.isEnabled() &&!carta15.isEnabled() &&!carta16.isEnabled() &&!carta17.isEnabled() &&!carta18.isEnabled() &&
+                !carta19.isEnabled() &&!carta20.isEnabled() ){
+            JOptionPane.showMessageDialog(this, "¡Ganaste!"+JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     /**
@@ -28,46 +88,46 @@ public class Juego extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
-        jButton30 = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
-        jButton33 = new javax.swing.JButton();
-        jButton34 = new javax.swing.JButton();
-        jButton35 = new javax.swing.JButton();
-        jButton36 = new javax.swing.JButton();
-        jButton37 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
-        jButton39 = new javax.swing.JButton();
-        jButton40 = new javax.swing.JButton();
+        carta2 = new javax.swing.JButton();
+        carta1 = new javax.swing.JButton();
+        carta3 = new javax.swing.JButton();
+        carta4 = new javax.swing.JButton();
+        carta5 = new javax.swing.JButton();
+        carta6 = new javax.swing.JButton();
+        carta7 = new javax.swing.JButton();
+        carta8 = new javax.swing.JButton();
+        carta9 = new javax.swing.JButton();
+        carta10 = new javax.swing.JButton();
+        carta11 = new javax.swing.JButton();
+        carta12 = new javax.swing.JButton();
+        carta13 = new javax.swing.JButton();
+        carta14 = new javax.swing.JButton();
+        carta15 = new javax.swing.JButton();
+        carta16 = new javax.swing.JButton();
+        carta17 = new javax.swing.JButton();
+        carta18 = new javax.swing.JButton();
+        carta19 = new javax.swing.JButton();
+        carta20 = new javax.swing.JButton();
+        carta21 = new javax.swing.JButton();
+        carta22 = new javax.swing.JButton();
+        carta23 = new javax.swing.JButton();
+        carta24 = new javax.swing.JButton();
+        carta25 = new javax.swing.JButton();
+        carta26 = new javax.swing.JButton();
+        carta27 = new javax.swing.JButton();
+        carta28 = new javax.swing.JButton();
+        carta29 = new javax.swing.JButton();
+        carta30 = new javax.swing.JButton();
+        carta31 = new javax.swing.JButton();
+        carta32 = new javax.swing.JButton();
+        carta33 = new javax.swing.JButton();
+        carta34 = new javax.swing.JButton();
+        carta35 = new javax.swing.JButton();
+        carta36 = new javax.swing.JButton();
+        carta37 = new javax.swing.JButton();
+        carta38 = new javax.swing.JButton();
+        carta39 = new javax.swing.JButton();
+        carta40 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,325 +135,525 @@ public class Juego extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusable(false);
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta2.setForeground(new java.awt.Color(0, 0, 0));
+        carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta2.setBorder(null);
+        carta2.setBorderPainted(false);
+        carta2.setContentAreaFilled(false);
+        carta2.setFocusable(false);
+        carta2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta2ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusable(false);
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta1.setForeground(new java.awt.Color(0, 0, 0));
+        carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta1.setBorder(null);
+        carta1.setBorderPainted(false);
+        carta1.setContentAreaFilled(false);
+        carta1.setFocusable(false);
+        carta1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta1ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusable(false);
-        jButton3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta3.setForeground(new java.awt.Color(0, 0, 0));
+        carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta3.setBorder(null);
+        carta3.setBorderPainted(false);
+        carta3.setContentAreaFilled(false);
+        carta3.setFocusable(false);
+        carta3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta3ActionPerformed(evt);
+            }
+        });
 
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setFocusable(false);
-        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta4.setForeground(new java.awt.Color(0, 0, 0));
+        carta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta4.setBorder(null);
+        carta4.setBorderPainted(false);
+        carta4.setContentAreaFilled(false);
+        carta4.setFocusable(false);
+        carta4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta4ActionPerformed(evt);
+            }
+        });
 
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setFocusable(false);
-        jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta5.setForeground(new java.awt.Color(0, 0, 0));
+        carta5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta5.setBorder(null);
+        carta5.setBorderPainted(false);
+        carta5.setContentAreaFilled(false);
+        carta5.setFocusable(false);
+        carta5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta5ActionPerformed(evt);
+            }
+        });
 
-        jButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setFocusable(false);
-        jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta6.setForeground(new java.awt.Color(0, 0, 0));
+        carta6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta6.setBorder(null);
+        carta6.setBorderPainted(false);
+        carta6.setContentAreaFilled(false);
+        carta6.setFocusable(false);
+        carta6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta6ActionPerformed(evt);
+            }
+        });
 
-        jButton7.setForeground(new java.awt.Color(0, 0, 0));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setFocusable(false);
-        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta7.setForeground(new java.awt.Color(0, 0, 0));
+        carta7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta7.setBorder(null);
+        carta7.setBorderPainted(false);
+        carta7.setContentAreaFilled(false);
+        carta7.setFocusable(false);
+        carta7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta7ActionPerformed(evt);
+            }
+        });
 
-        jButton8.setForeground(new java.awt.Color(0, 0, 0));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton8.setBorder(null);
-        jButton8.setBorderPainted(false);
-        jButton8.setContentAreaFilled(false);
-        jButton8.setFocusable(false);
-        jButton8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta8.setForeground(new java.awt.Color(0, 0, 0));
+        carta8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta8.setBorder(null);
+        carta8.setBorderPainted(false);
+        carta8.setContentAreaFilled(false);
+        carta8.setFocusable(false);
+        carta8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta8ActionPerformed(evt);
+            }
+        });
 
-        jButton9.setForeground(new java.awt.Color(0, 0, 0));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton9.setBorder(null);
-        jButton9.setBorderPainted(false);
-        jButton9.setContentAreaFilled(false);
-        jButton9.setFocusable(false);
-        jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta9.setForeground(new java.awt.Color(0, 0, 0));
+        carta9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta9.setBorder(null);
+        carta9.setBorderPainted(false);
+        carta9.setContentAreaFilled(false);
+        carta9.setFocusable(false);
+        carta9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta9ActionPerformed(evt);
+            }
+        });
 
-        jButton10.setForeground(new java.awt.Color(0, 0, 0));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton10.setBorder(null);
-        jButton10.setBorderPainted(false);
-        jButton10.setContentAreaFilled(false);
-        jButton10.setFocusable(false);
-        jButton10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta10.setForeground(new java.awt.Color(0, 0, 0));
+        carta10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta10.setBorder(null);
+        carta10.setBorderPainted(false);
+        carta10.setContentAreaFilled(false);
+        carta10.setFocusable(false);
+        carta10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta10ActionPerformed(evt);
+            }
+        });
 
-        jButton11.setForeground(new java.awt.Color(0, 0, 0));
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton11.setBorder(null);
-        jButton11.setBorderPainted(false);
-        jButton11.setContentAreaFilled(false);
-        jButton11.setFocusable(false);
-        jButton11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta11.setForeground(new java.awt.Color(0, 0, 0));
+        carta11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta11.setBorder(null);
+        carta11.setBorderPainted(false);
+        carta11.setContentAreaFilled(false);
+        carta11.setFocusable(false);
+        carta11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta11ActionPerformed(evt);
+            }
+        });
 
-        jButton12.setForeground(new java.awt.Color(0, 0, 0));
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton12.setBorder(null);
-        jButton12.setBorderPainted(false);
-        jButton12.setContentAreaFilled(false);
-        jButton12.setFocusable(false);
-        jButton12.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta12.setForeground(new java.awt.Color(0, 0, 0));
+        carta12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta12.setBorder(null);
+        carta12.setBorderPainted(false);
+        carta12.setContentAreaFilled(false);
+        carta12.setFocusable(false);
+        carta12.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta12ActionPerformed(evt);
+            }
+        });
 
-        jButton13.setForeground(new java.awt.Color(0, 0, 0));
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton13.setBorder(null);
-        jButton13.setBorderPainted(false);
-        jButton13.setContentAreaFilled(false);
-        jButton13.setFocusable(false);
-        jButton13.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta13.setForeground(new java.awt.Color(0, 0, 0));
+        carta13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta13.setBorder(null);
+        carta13.setBorderPainted(false);
+        carta13.setContentAreaFilled(false);
+        carta13.setFocusable(false);
+        carta13.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta13ActionPerformed(evt);
+            }
+        });
 
-        jButton14.setForeground(new java.awt.Color(0, 0, 0));
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton14.setBorder(null);
-        jButton14.setBorderPainted(false);
-        jButton14.setContentAreaFilled(false);
-        jButton14.setFocusable(false);
-        jButton14.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta14.setForeground(new java.awt.Color(0, 0, 0));
+        carta14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta14.setBorder(null);
+        carta14.setBorderPainted(false);
+        carta14.setContentAreaFilled(false);
+        carta14.setFocusable(false);
+        carta14.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta14ActionPerformed(evt);
+            }
+        });
 
-        jButton15.setForeground(new java.awt.Color(0, 0, 0));
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton15.setBorder(null);
-        jButton15.setBorderPainted(false);
-        jButton15.setContentAreaFilled(false);
-        jButton15.setFocusable(false);
-        jButton15.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta15.setForeground(new java.awt.Color(0, 0, 0));
+        carta15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta15.setBorder(null);
+        carta15.setBorderPainted(false);
+        carta15.setContentAreaFilled(false);
+        carta15.setFocusable(false);
+        carta15.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta15ActionPerformed(evt);
+            }
+        });
 
-        jButton16.setForeground(new java.awt.Color(0, 0, 0));
-        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton16.setBorder(null);
-        jButton16.setBorderPainted(false);
-        jButton16.setContentAreaFilled(false);
-        jButton16.setFocusable(false);
-        jButton16.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta16.setForeground(new java.awt.Color(0, 0, 0));
+        carta16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta16.setBorder(null);
+        carta16.setBorderPainted(false);
+        carta16.setContentAreaFilled(false);
+        carta16.setFocusable(false);
+        carta16.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta16ActionPerformed(evt);
+            }
+        });
 
-        jButton17.setForeground(new java.awt.Color(0, 0, 0));
-        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton17.setBorder(null);
-        jButton17.setBorderPainted(false);
-        jButton17.setContentAreaFilled(false);
-        jButton17.setFocusable(false);
-        jButton17.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta17.setForeground(new java.awt.Color(0, 0, 0));
+        carta17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta17.setBorder(null);
+        carta17.setBorderPainted(false);
+        carta17.setContentAreaFilled(false);
+        carta17.setFocusable(false);
+        carta17.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta17ActionPerformed(evt);
+            }
+        });
 
-        jButton18.setForeground(new java.awt.Color(0, 0, 0));
-        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton18.setBorder(null);
-        jButton18.setBorderPainted(false);
-        jButton18.setContentAreaFilled(false);
-        jButton18.setFocusable(false);
-        jButton18.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta18.setForeground(new java.awt.Color(0, 0, 0));
+        carta18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta18.setBorder(null);
+        carta18.setBorderPainted(false);
+        carta18.setContentAreaFilled(false);
+        carta18.setFocusable(false);
+        carta18.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta18ActionPerformed(evt);
+            }
+        });
 
-        jButton19.setForeground(new java.awt.Color(0, 0, 0));
-        jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton19.setBorder(null);
-        jButton19.setBorderPainted(false);
-        jButton19.setContentAreaFilled(false);
-        jButton19.setFocusable(false);
-        jButton19.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta19.setForeground(new java.awt.Color(0, 0, 0));
+        carta19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta19.setBorder(null);
+        carta19.setBorderPainted(false);
+        carta19.setContentAreaFilled(false);
+        carta19.setFocusable(false);
+        carta19.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta19ActionPerformed(evt);
+            }
+        });
 
-        jButton20.setForeground(new java.awt.Color(0, 0, 0));
-        jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton20.setBorder(null);
-        jButton20.setBorderPainted(false);
-        jButton20.setContentAreaFilled(false);
-        jButton20.setFocusable(false);
-        jButton20.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta20.setForeground(new java.awt.Color(0, 0, 0));
+        carta20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta20.setBorder(null);
+        carta20.setBorderPainted(false);
+        carta20.setContentAreaFilled(false);
+        carta20.setFocusable(false);
+        carta20.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta20ActionPerformed(evt);
+            }
+        });
 
-        jButton21.setForeground(new java.awt.Color(0, 0, 0));
-        jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton21.setBorder(null);
-        jButton21.setBorderPainted(false);
-        jButton21.setContentAreaFilled(false);
-        jButton21.setFocusable(false);
-        jButton21.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta21.setForeground(new java.awt.Color(0, 0, 0));
+        carta21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta21.setBorder(null);
+        carta21.setBorderPainted(false);
+        carta21.setContentAreaFilled(false);
+        carta21.setFocusable(false);
+        carta21.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta21ActionPerformed(evt);
+            }
+        });
 
-        jButton22.setForeground(new java.awt.Color(0, 0, 0));
-        jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton22.setBorder(null);
-        jButton22.setBorderPainted(false);
-        jButton22.setContentAreaFilled(false);
-        jButton22.setFocusable(false);
-        jButton22.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta22.setForeground(new java.awt.Color(0, 0, 0));
+        carta22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta22.setBorder(null);
+        carta22.setBorderPainted(false);
+        carta22.setContentAreaFilled(false);
+        carta22.setFocusable(false);
+        carta22.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta22ActionPerformed(evt);
+            }
+        });
 
-        jButton23.setForeground(new java.awt.Color(0, 0, 0));
-        jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton23.setBorder(null);
-        jButton23.setBorderPainted(false);
-        jButton23.setContentAreaFilled(false);
-        jButton23.setFocusable(false);
-        jButton23.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta23.setForeground(new java.awt.Color(0, 0, 0));
+        carta23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta23.setBorder(null);
+        carta23.setBorderPainted(false);
+        carta23.setContentAreaFilled(false);
+        carta23.setFocusable(false);
+        carta23.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta23ActionPerformed(evt);
+            }
+        });
 
-        jButton24.setForeground(new java.awt.Color(0, 0, 0));
-        jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton24.setBorder(null);
-        jButton24.setBorderPainted(false);
-        jButton24.setContentAreaFilled(false);
-        jButton24.setFocusable(false);
-        jButton24.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta24.setForeground(new java.awt.Color(0, 0, 0));
+        carta24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta24.setBorder(null);
+        carta24.setBorderPainted(false);
+        carta24.setContentAreaFilled(false);
+        carta24.setFocusable(false);
+        carta24.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta24ActionPerformed(evt);
+            }
+        });
 
-        jButton25.setForeground(new java.awt.Color(0, 0, 0));
-        jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton25.setBorder(null);
-        jButton25.setBorderPainted(false);
-        jButton25.setContentAreaFilled(false);
-        jButton25.setFocusable(false);
-        jButton25.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta25.setForeground(new java.awt.Color(0, 0, 0));
+        carta25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta25.setBorder(null);
+        carta25.setBorderPainted(false);
+        carta25.setContentAreaFilled(false);
+        carta25.setFocusable(false);
+        carta25.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta25ActionPerformed(evt);
+            }
+        });
 
-        jButton26.setForeground(new java.awt.Color(0, 0, 0));
-        jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton26.setBorder(null);
-        jButton26.setBorderPainted(false);
-        jButton26.setContentAreaFilled(false);
-        jButton26.setFocusable(false);
-        jButton26.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta26.setForeground(new java.awt.Color(0, 0, 0));
+        carta26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta26.setBorder(null);
+        carta26.setBorderPainted(false);
+        carta26.setContentAreaFilled(false);
+        carta26.setFocusable(false);
+        carta26.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta26ActionPerformed(evt);
+            }
+        });
 
-        jButton27.setForeground(new java.awt.Color(0, 0, 0));
-        jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton27.setBorder(null);
-        jButton27.setBorderPainted(false);
-        jButton27.setContentAreaFilled(false);
-        jButton27.setFocusable(false);
-        jButton27.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta27.setForeground(new java.awt.Color(0, 0, 0));
+        carta27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta27.setBorder(null);
+        carta27.setBorderPainted(false);
+        carta27.setContentAreaFilled(false);
+        carta27.setFocusable(false);
+        carta27.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta27ActionPerformed(evt);
+            }
+        });
 
-        jButton28.setForeground(new java.awt.Color(0, 0, 0));
-        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton28.setBorder(null);
-        jButton28.setBorderPainted(false);
-        jButton28.setContentAreaFilled(false);
-        jButton28.setFocusable(false);
-        jButton28.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta28.setForeground(new java.awt.Color(0, 0, 0));
+        carta28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta28.setBorder(null);
+        carta28.setBorderPainted(false);
+        carta28.setContentAreaFilled(false);
+        carta28.setFocusable(false);
+        carta28.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta28ActionPerformed(evt);
+            }
+        });
 
-        jButton29.setForeground(new java.awt.Color(0, 0, 0));
-        jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton29.setBorder(null);
-        jButton29.setBorderPainted(false);
-        jButton29.setContentAreaFilled(false);
-        jButton29.setFocusable(false);
-        jButton29.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta29.setForeground(new java.awt.Color(0, 0, 0));
+        carta29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta29.setBorder(null);
+        carta29.setBorderPainted(false);
+        carta29.setContentAreaFilled(false);
+        carta29.setFocusable(false);
+        carta29.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta29ActionPerformed(evt);
+            }
+        });
 
-        jButton30.setForeground(new java.awt.Color(0, 0, 0));
-        jButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton30.setBorder(null);
-        jButton30.setBorderPainted(false);
-        jButton30.setContentAreaFilled(false);
-        jButton30.setFocusable(false);
-        jButton30.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta30.setForeground(new java.awt.Color(0, 0, 0));
+        carta30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta30.setBorder(null);
+        carta30.setBorderPainted(false);
+        carta30.setContentAreaFilled(false);
+        carta30.setFocusable(false);
+        carta30.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta30ActionPerformed(evt);
+            }
+        });
 
-        jButton31.setForeground(new java.awt.Color(0, 0, 0));
-        jButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton31.setBorder(null);
-        jButton31.setBorderPainted(false);
-        jButton31.setContentAreaFilled(false);
-        jButton31.setFocusable(false);
-        jButton31.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta31.setForeground(new java.awt.Color(0, 0, 0));
+        carta31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta31.setBorder(null);
+        carta31.setBorderPainted(false);
+        carta31.setContentAreaFilled(false);
+        carta31.setFocusable(false);
+        carta31.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta31ActionPerformed(evt);
+            }
+        });
 
-        jButton32.setForeground(new java.awt.Color(0, 0, 0));
-        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton32.setBorder(null);
-        jButton32.setBorderPainted(false);
-        jButton32.setContentAreaFilled(false);
-        jButton32.setFocusable(false);
-        jButton32.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta32.setForeground(new java.awt.Color(0, 0, 0));
+        carta32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta32.setBorder(null);
+        carta32.setBorderPainted(false);
+        carta32.setContentAreaFilled(false);
+        carta32.setFocusable(false);
+        carta32.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta32ActionPerformed(evt);
+            }
+        });
 
-        jButton33.setForeground(new java.awt.Color(0, 0, 0));
-        jButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton33.setBorder(null);
-        jButton33.setBorderPainted(false);
-        jButton33.setContentAreaFilled(false);
-        jButton33.setFocusable(false);
-        jButton33.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta33.setForeground(new java.awt.Color(0, 0, 0));
+        carta33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta33.setBorder(null);
+        carta33.setBorderPainted(false);
+        carta33.setContentAreaFilled(false);
+        carta33.setFocusable(false);
+        carta33.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta33ActionPerformed(evt);
+            }
+        });
 
-        jButton34.setForeground(new java.awt.Color(0, 0, 0));
-        jButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton34.setBorder(null);
-        jButton34.setBorderPainted(false);
-        jButton34.setContentAreaFilled(false);
-        jButton34.setFocusable(false);
-        jButton34.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta34.setForeground(new java.awt.Color(0, 0, 0));
+        carta34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta34.setBorder(null);
+        carta34.setBorderPainted(false);
+        carta34.setContentAreaFilled(false);
+        carta34.setFocusable(false);
+        carta34.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta34ActionPerformed(evt);
+            }
+        });
 
-        jButton35.setForeground(new java.awt.Color(0, 0, 0));
-        jButton35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton35.setBorder(null);
-        jButton35.setBorderPainted(false);
-        jButton35.setContentAreaFilled(false);
-        jButton35.setFocusable(false);
-        jButton35.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta35.setForeground(new java.awt.Color(0, 0, 0));
+        carta35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta35.setBorder(null);
+        carta35.setBorderPainted(false);
+        carta35.setContentAreaFilled(false);
+        carta35.setFocusable(false);
+        carta35.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta35ActionPerformed(evt);
+            }
+        });
 
-        jButton36.setForeground(new java.awt.Color(0, 0, 0));
-        jButton36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton36.setBorder(null);
-        jButton36.setBorderPainted(false);
-        jButton36.setContentAreaFilled(false);
-        jButton36.setFocusable(false);
-        jButton36.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta36.setForeground(new java.awt.Color(0, 0, 0));
+        carta36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta36.setBorder(null);
+        carta36.setBorderPainted(false);
+        carta36.setContentAreaFilled(false);
+        carta36.setFocusable(false);
+        carta36.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta36ActionPerformed(evt);
+            }
+        });
 
-        jButton37.setForeground(new java.awt.Color(0, 0, 0));
-        jButton37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton37.setBorder(null);
-        jButton37.setBorderPainted(false);
-        jButton37.setContentAreaFilled(false);
-        jButton37.setFocusable(false);
-        jButton37.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta37.setForeground(new java.awt.Color(0, 0, 0));
+        carta37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta37.setBorder(null);
+        carta37.setBorderPainted(false);
+        carta37.setContentAreaFilled(false);
+        carta37.setFocusable(false);
+        carta37.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta37ActionPerformed(evt);
+            }
+        });
 
-        jButton38.setForeground(new java.awt.Color(0, 0, 0));
-        jButton38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton38.setBorder(null);
-        jButton38.setBorderPainted(false);
-        jButton38.setContentAreaFilled(false);
-        jButton38.setFocusable(false);
-        jButton38.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta38.setForeground(new java.awt.Color(0, 0, 0));
+        carta38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta38.setBorder(null);
+        carta38.setBorderPainted(false);
+        carta38.setContentAreaFilled(false);
+        carta38.setFocusable(false);
+        carta38.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta38ActionPerformed(evt);
+            }
+        });
 
-        jButton39.setForeground(new java.awt.Color(0, 0, 0));
-        jButton39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton39.setBorder(null);
-        jButton39.setBorderPainted(false);
-        jButton39.setContentAreaFilled(false);
-        jButton39.setFocusable(false);
-        jButton39.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta39.setForeground(new java.awt.Color(0, 0, 0));
+        carta39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta39.setBorder(null);
+        carta39.setBorderPainted(false);
+        carta39.setContentAreaFilled(false);
+        carta39.setFocusable(false);
+        carta39.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta39ActionPerformed(evt);
+            }
+        });
 
-        jButton40.setForeground(new java.awt.Color(0, 0, 0));
-        jButton40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        jButton40.setBorder(null);
-        jButton40.setBorderPainted(false);
-        jButton40.setContentAreaFilled(false);
-        jButton40.setFocusable(false);
-        jButton40.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta40.setForeground(new java.awt.Color(0, 0, 0));
+        carta40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
+        carta40.setBorder(null);
+        carta40.setBorderPainted(false);
+        carta40.setContentAreaFilled(false);
+        carta40.setFocusable(false);
+        carta40.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/mouseOver.png"))); // NOI18N
+        carta40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta40ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Dadafe Memory");
 
@@ -401,160 +661,156 @@ public class Juego extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton40, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton39, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton33, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(587, Short.MAX_VALUE)))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(carta1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(carta2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(carta16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(carta3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(carta13, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta14, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(carta11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(carta32, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta30, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta29, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta28, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta27, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta26, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta25, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(carta40, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta39, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta38, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta37, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta36, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta35, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta34, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta33, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(carta24, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta23, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta22, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta21, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta19, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta18, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carta17, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(carta2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(carta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(carta16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(carta24, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta23, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta22, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta21, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta19, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta18, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta17, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(carta32, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta29, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta28, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta27, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta26, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carta25, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(carta31)
+                    .addComponent(carta30, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton40, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton39, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton33, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(carta40, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta39, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta38, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta37, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta36, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta35, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta34, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carta33, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jLabel1))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(452, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -569,13 +825,173 @@ public class Juego extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
+                .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void carta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta2ActionPerformed
+
+    private void carta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta10ActionPerformed
+
+    private void carta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta1ActionPerformed
+
+    private void carta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta3ActionPerformed
+
+    private void carta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta4ActionPerformed
+
+    private void carta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta5ActionPerformed
+
+    private void carta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta6ActionPerformed
+
+    private void carta7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta7ActionPerformed
+
+    private void carta8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta8ActionPerformed
+
+    private void carta16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta16ActionPerformed
+
+    private void carta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta12ActionPerformed
+
+    private void carta13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta13ActionPerformed
+
+    private void carta14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta14ActionPerformed
+
+    private void carta15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta15ActionPerformed
+
+    private void carta9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta9ActionPerformed
+
+    private void carta11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta11ActionPerformed
+
+    private void carta24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta24ActionPerformed
+
+    private void carta23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta23ActionPerformed
+
+    private void carta22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta22ActionPerformed
+
+    private void carta21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta21ActionPerformed
+
+    private void carta20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta20ActionPerformed
+
+    private void carta19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta19ActionPerformed
+
+    private void carta18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta18ActionPerformed
+
+    private void carta17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta17ActionPerformed
+
+    private void carta32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta32ActionPerformed
+
+    private void carta31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta31ActionPerformed
+
+    private void carta30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta30ActionPerformed
+
+    private void carta29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta29ActionPerformed
+
+    private void carta28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta28ActionPerformed
+
+    private void carta27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta27ActionPerformed
+
+    private void carta26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta26ActionPerformed
+
+    private void carta25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta25ActionPerformed
+
+    private void carta40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta40ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta40ActionPerformed
+
+    private void carta39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta39ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta39ActionPerformed
+
+    private void carta38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta38ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta38ActionPerformed
+
+    private void carta37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta37ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta37ActionPerformed
+
+    private void carta36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta36ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta36ActionPerformed
+
+    private void carta35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta35ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta35ActionPerformed
+
+    private void carta34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta34ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta34ActionPerformed
+
+    private void carta33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta33ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta33ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -613,81 +1029,47 @@ public class Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton34;
-    private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
-    private javax.swing.JButton jButton39;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton57;
-    private javax.swing.JButton jButton58;
-    private javax.swing.JButton jButton59;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton60;
-    private javax.swing.JButton jButton61;
-    private javax.swing.JButton jButton62;
-    private javax.swing.JButton jButton63;
-    private javax.swing.JButton jButton64;
-    private javax.swing.JButton jButton65;
-    private javax.swing.JButton jButton66;
-    private javax.swing.JButton jButton67;
-    private javax.swing.JButton jButton68;
-    private javax.swing.JButton jButton69;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton70;
-    private javax.swing.JButton jButton71;
-    private javax.swing.JButton jButton72;
-    private javax.swing.JButton jButton73;
-    private javax.swing.JButton jButton74;
-    private javax.swing.JButton jButton75;
-    private javax.swing.JButton jButton76;
-    private javax.swing.JButton jButton77;
-    private javax.swing.JButton jButton78;
-    private javax.swing.JButton jButton79;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton80;
-    private javax.swing.JButton jButton81;
-    private javax.swing.JButton jButton82;
-    private javax.swing.JButton jButton83;
-    private javax.swing.JButton jButton84;
-    private javax.swing.JButton jButton85;
-    private javax.swing.JButton jButton86;
-    private javax.swing.JButton jButton87;
-    private javax.swing.JButton jButton88;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton carta1;
+    private javax.swing.JButton carta10;
+    private javax.swing.JButton carta11;
+    private javax.swing.JButton carta12;
+    private javax.swing.JButton carta13;
+    private javax.swing.JButton carta14;
+    private javax.swing.JButton carta15;
+    private javax.swing.JButton carta16;
+    private javax.swing.JButton carta17;
+    private javax.swing.JButton carta18;
+    private javax.swing.JButton carta19;
+    private javax.swing.JButton carta2;
+    private javax.swing.JButton carta20;
+    private javax.swing.JButton carta21;
+    private javax.swing.JButton carta22;
+    private javax.swing.JButton carta23;
+    private javax.swing.JButton carta24;
+    private javax.swing.JButton carta25;
+    private javax.swing.JButton carta26;
+    private javax.swing.JButton carta27;
+    private javax.swing.JButton carta28;
+    private javax.swing.JButton carta29;
+    private javax.swing.JButton carta3;
+    private javax.swing.JButton carta30;
+    private javax.swing.JButton carta31;
+    private javax.swing.JButton carta32;
+    private javax.swing.JButton carta33;
+    private javax.swing.JButton carta34;
+    private javax.swing.JButton carta35;
+    private javax.swing.JButton carta36;
+    private javax.swing.JButton carta37;
+    private javax.swing.JButton carta38;
+    private javax.swing.JButton carta39;
+    private javax.swing.JButton carta4;
+    private javax.swing.JButton carta40;
+    private javax.swing.JButton carta5;
+    private javax.swing.JButton carta6;
+    private javax.swing.JButton carta7;
+    private javax.swing.JButton carta8;
+    private javax.swing.JButton carta9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
