@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui;
 
 import javax.swing.ImageIcon;
@@ -11,9 +6,9 @@ import javax.swing.JOptionPane;
 import logica.LogicaDelJuego;
 
 /**
- *
  * @author david
  */
+
 public class Juego extends javax.swing.JFrame {
     
     /**
@@ -30,7 +25,9 @@ public class Juego extends javax.swing.JFrame {
     }
     
     private void setImagenALasCartas(){
+
         //le añade la imagen a cada carta
+
         int[] numeros = log.getNumerosALasImagenes();
         
         carta1.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[0]+".png")));
