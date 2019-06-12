@@ -1,4 +1,4 @@
-package funciones;
+package Funciones;
 
 /**
  * @author federico_correas
