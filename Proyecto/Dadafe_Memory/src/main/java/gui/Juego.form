@@ -168,7 +168,7 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="reiniciar" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_salir" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -238,7 +238,7 @@
                       <Component id="carta33" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="reiniciar" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_salir" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -275,9 +275,6 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/fotos/linuxadminhero.png"/>
             </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -288,6 +285,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="carta1ActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Juego_carta1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="carta3">
           <Properties>
@@ -1125,10 +1125,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="carta40ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="reiniciar">
+        <Component class="javax.swing.JButton" name="btn_salir">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_salirActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

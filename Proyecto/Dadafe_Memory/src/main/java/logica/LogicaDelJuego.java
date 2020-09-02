@@ -15,16 +15,16 @@ public class LogicaDelJuego {
         
         while(contador<40){
             
-            Random r = new Random();
-            int a = r.nextInt(20)+1;
+            //Random r = new Random();
+            int a = (int) Math.floor(Math.random()*20); //r.nextInt(20)+1;
             int b = 0;
             
             for (int i = 0; i < 40; i++) {
             
                 if (numeros[i]==a){
-                    b++;
-                    
+                    b++; 
                 }
+                break;
             }
             
             if (b<2){

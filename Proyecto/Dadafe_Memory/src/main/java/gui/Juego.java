@@ -1,105 +1,113 @@
 package gui;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import logica.LogicaDelJuego;
 
-
 /**
  * @author federico_correas
  */
-public class Juego extends javax.swing.JFrame {   
-     
+public class Juego extends javax.swing.JFrame {
+
     private final LogicaDelJuego log = new LogicaDelJuego();
-    private ImageIcon imagen1,imagen2;
-    private boolean voltear,primeraC= false;
+    private ImageIcon imagen1, imagen2;
+    private boolean voltear, primeraC = false;
     private final JButton[] pboton = new JButton[2];
-    
-    public Juego() {
-        
+
+    public Juego() throws IOException {
+
         initComponents();
-        
+
         setImagenALasCartas();
+
     }
-    
-    private void setImagenALasCartas(){
-        
+
+    private void setImagenALasCartas() throws MalformedURLException {
+
         //Le añadimos una imagen a cada carta.
-        int[] numeros = log.getNumerosALasImagenes();
-        
-        carta1.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[0]+".png")));
-        carta2.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[1]+".png")));
-        carta3.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[2]+".png")));
-        carta4.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[3]+".png")));
-        carta5.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[4]+".png")));
-        carta6.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[5]+".png")));
-        carta7.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[6]+".png")));
-        carta8.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[7]+".png")));
-        carta9.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[8]+".png")));
-        carta10.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[9]+".png")));
-        carta11.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[10]+".png")));
-        carta12.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[11]+".png")));
-        carta13.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[12]+".png")));
-        carta14.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[13]+".png")));
-        carta15.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[14]+".png")));
-        carta16.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[15]+".png")));
-        carta17.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[16]+".png")));
-        carta18.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[17]+".png")));
-        carta19.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[18]+".png")));
-        carta20.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[19]+".png")));
-        carta21.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[0]+".png")));
-        carta22.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[1]+".png")));
-        carta23.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[2]+".png")));
-        carta24.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[3]+".png")));
-        carta25.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[4]+".png")));
-        carta26.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[5]+".png")));
-        carta27.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[6]+".png")));
-        carta28.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[7]+".png")));
-        carta29.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[8]+".png")));
-        carta30.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[9]+".png")));
-        carta31.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[10]+".png")));
-        carta32.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[11]+".png")));
-        carta33.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[12]+".png")));
-        carta34.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[13]+".png")));
-        carta35.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[14]+".png")));
-        carta36.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[15]+".png")));
-        carta37.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[16]+".png")));
-        carta38.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[17]+".png")));
-        carta39.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[18]+".png")));
-        carta40.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen"+numeros[19]+".png")));
-        
+        int[] numeros = this.log.getNumerosALasImagenes();
+
+        carta1.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[0] + ".png")));
+        carta2.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[1] + ".png")));
+        carta3.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[2] + ".png")));
+        carta4.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[3] + ".png")));
+        carta5.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[4] + ".png")));
+        carta6.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[5] + ".png")));
+        carta7.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[6] + ".png")));
+        carta8.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[7] + ".png")));
+        carta9.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[8] + ".png")));
+        carta10.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[9] + ".png")));
+        carta11.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[10] + ".png")));
+        carta12.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[11] + ".png")));
+        carta13.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[12] + ".png")));
+        carta14.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[13] + ".png")));
+        carta15.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[14] + ".png")));
+        carta16.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[15] + ".png")));
+        carta17.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[16] + ".png")));
+        carta18.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[17] + ".png")));
+        carta19.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[18] + ".png")));
+        carta20.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[19] + ".png")));
+        carta21.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[0] + ".png")));
+        carta22.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[1] + ".png")));
+        carta23.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[2] + ".png")));
+        carta24.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[3] + ".png")));
+        carta25.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[4] + ".png")));
+        carta26.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[5] + ".png")));
+        carta27.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[6] + ".png")));
+        carta28.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[7] + ".png")));
+        carta29.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[8] + ".png")));
+        carta30.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[9] + ".png")));
+        carta31.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[10] + ".png")));
+        carta32.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[11] + ".png")));
+        carta33.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[12] + ".png")));
+        carta34.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[13] + ".png")));
+        carta35.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[14] + ".png")));
+        carta36.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[15] + ".png")));
+        carta37.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[16] + ".png")));
+        carta38.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[17] + ".png")));
+        carta39.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[18] + ".png")));
+        carta40.setDisabledIcon(new ImageIcon(getClass().getResource("/fotos/imagen" + numeros[19] + ".png")));
+
     }
-    private void botonHabilitar(JButton btn){
-        if (!voltear){
+
+    private void botonHabilitar(JButton btn) {
+        if (!voltear) {
             btn.setEnabled(false);
-            imagen1=(ImageIcon) btn.getDisabledIcon();
-            pboton[0]=btn;
-            voltear=true;
-            primeraC=false;
-        } else{
+            imagen1 = (ImageIcon) btn.getDisabledIcon();
+            pboton[0] = btn;
+            voltear = true;
+            primeraC = false;
+        } else {
             btn.setEnabled(false);
             imagen2 = (ImageIcon) btn.getDisabledIcon();
-            pboton[1]=btn;
-            primeraC=true;
+            pboton[1] = btn;
+            primeraC = true;
+            comparar();
             ganaste();
-          }
+        }
     }
-    private void comparar(){
-        if (voltear && primeraC){
-            
+
+    private void comparar() {
+        if (voltear && primeraC) {
+
             if (imagen1.getDescription().compareTo(imagen2.getDescription()) != 0) {
-            pboton[0].setEnabled(true);
-            pboton[1].setEnabled(true);
+                pboton[0].setEnabled(true);
+                pboton[1].setEnabled(true);
+            }
+
+            voltear = false;
+
         }
-        
-            
-            voltear=false;
-        
-        }
-    
+
     }
-    private void reiniciar(){
+
+    private void reiniciar() {
         carta1.setEnabled(true);
         carta2.setEnabled(true);
         carta3.setEnabled(true);
@@ -120,19 +128,18 @@ public class Juego extends javax.swing.JFrame {
         carta18.setEnabled(true);
         carta19.setEnabled(true);
         carta20.setEnabled(true);
-        
-        primeraC=false;
-        voltear=false;
-        
-        
-        
+
+        primeraC = false;
+        voltear = false;
+
     }
-    private void ganaste(){
-        if (!carta1.isEnabled() && !carta2.isEnabled() && !carta3.isEnabled() && !carta4.isEnabled() && !carta5.isEnabled() && !carta6.isEnabled() &&
-                !carta7.isEnabled() && !carta8.isEnabled() && !carta9.isEnabled() && !carta10.isEnabled() && !carta11.isEnabled() &&!carta12.isEnabled() &&
-                !carta13.isEnabled() &&!carta14.isEnabled() &&!carta15.isEnabled() &&!carta16.isEnabled() &&!carta17.isEnabled() &&!carta18.isEnabled() &&
-                !carta19.isEnabled() &&!carta20.isEnabled() ){
-            JOptionPane.showMessageDialog(this, "¡Ganaste!"+JOptionPane.INFORMATION_MESSAGE);
+
+    private void ganaste() {
+        if (!carta1.isEnabled() && !carta2.isEnabled() && !carta3.isEnabled() && !carta4.isEnabled() && !carta5.isEnabled() && !carta6.isEnabled()
+                && !carta7.isEnabled() && !carta8.isEnabled() && !carta9.isEnabled() && !carta10.isEnabled() && !carta11.isEnabled() && !carta12.isEnabled()
+                && !carta13.isEnabled() && !carta14.isEnabled() && !carta15.isEnabled() && !carta16.isEnabled() && !carta17.isEnabled() && !carta18.isEnabled()
+                && !carta19.isEnabled() && !carta20.isEnabled()) {
+            JOptionPane.showMessageDialog(this, "¡Ganaste!" + JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -186,7 +193,7 @@ public class Juego extends javax.swing.JFrame {
         carta38 = new javax.swing.JButton();
         carta39 = new javax.swing.JButton();
         carta40 = new javax.swing.JButton();
-        reiniciar = new javax.swing.JButton();
+        btn_salir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -209,7 +216,6 @@ public class Juego extends javax.swing.JFrame {
 
         carta1.setForeground(new java.awt.Color(0, 0, 0));
         carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotos/linuxadminhero.png"))); // NOI18N
-        carta1.setBorder(null);
         carta1.setBorderPainted(false);
         carta1.setContentAreaFilled(false);
         carta1.setFocusable(false);
@@ -714,7 +720,12 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        reiniciar.setText("jButton1");
+        btn_salir.setText("Salir");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -812,7 +823,7 @@ public class Juego extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(reiniciar)
+                .addComponent(btn_salir)
                 .addGap(34, 34, 34))
         );
         jPanel4Layout.setVerticalGroup(
@@ -872,7 +883,7 @@ public class Juego extends javax.swing.JFrame {
                     .addComponent(carta34, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(carta33, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(reiniciar)
+                .addComponent(btn_salir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1026,7 +1037,7 @@ public class Juego extends javax.swing.JFrame {
     private void carta32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta32ActionPerformed
         // TODO add your handling code here:
         botonHabilitar(carta32);
-        
+
     }//GEN-LAST:event_carta32ActionPerformed
 
     private void carta31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta31ActionPerformed
@@ -1103,71 +1114,13 @@ public class Juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         botonHabilitar(carta33);
     }//GEN-LAST:event_carta33ActionPerformed
-    private void carta1MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta2MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta3MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta4MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta5MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta6MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta7MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta8MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta9MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta10MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta11MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta12MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta13MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta14MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta15MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta16MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta17MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta18MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta19MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void carta20MouseExited(java.awt.event.MouseEvent evt){
-        comparar();
-    }
-    private void botonReiniciarActionPerfomed(java.awt.event.ActionEvent evt) {
-        reiniciar();
-    }
-    
-    
+
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btn_salirActionPerformed
+
+
     /**
      * @param args the command line arguments
      */
@@ -1197,11 +1150,16 @@ public class Juego extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Juego().setVisible(true);
+            try {
+                new Juego().setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_salir;
     private javax.swing.JButton carta1;
     private javax.swing.JButton carta10;
     private javax.swing.JButton carta11;
@@ -1244,6 +1202,6 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton carta9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JButton reiniciar;
     // End of variables declaration//GEN-END:variables
+
 }
